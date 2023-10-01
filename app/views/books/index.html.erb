@@ -1,11 +1,27 @@
 <h1>Books</h1>
-<teble>
-  <th>title</th>
-  <th>body</th>
-
-  <td></td>
-  <td></td>
-  <td><%= link_to 'Show', books_path %></td>
-  <td><%= link_to 'Edit', books_path %></td>
-  <td><%= link_to 'Destroy', books_path %></td>
+<teble class="table">
+  <thead>
+    <th>title</th>
+    <th>body</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
+    <td><%= link_to 'Show', books_path %></td>
+    <td><%= link_to 'Edit', books_path %></td>
+    <td><%= link_to 'Destroy', books_path %></td>
+  </tr>
+  </tbody>
 </teble>
+
+<h1>New Book</h1>
+<%= form_with model: @book do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Body</h4>
+  <%= f.text_area :body %><br>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
